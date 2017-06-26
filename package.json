@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "start npm run server-ts && start npm run server-node",
-    "server-ts": "tsc ./src/server.ts -w",
-    "server-node": "nodemon ./src/server.js"
+    "server-ts": "tsc ./src/server.ts -w --outDir ./dist",
+    "server-node": "nodemon ./dist/server.js"
   },
   "author": "",
   "license": "ISC",

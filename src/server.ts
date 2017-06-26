@@ -3,6 +3,7 @@
 "use strict";
 
 import * as Hapi from 'Hapi';
+import knex from './knex';
 
 const server: Hapi.Server = new Hapi.Server();
 
@@ -18,6 +19,30 @@ server.route({
     }
 
 });
+server.route( {
+
+    path: '/birds',
+    method: 'GET',
+    handler: (request: Hapi.Request, reply: Hapi.IReply ) => {    
+        const getOperation = knex( 'birds' ).where( {
+            isPublic: true
+        } ).select( 'name', 'species', 'picture_url' ).then( ( results ) => {
+            if( !results || results.length === 0 ) {
+                reply( {
+                    error: true,
+                    errMessage: 'no public bird found',
+                } );
+            }
+            reply( {
+                dataCount: results.length,
+                data: results,
+            } );
+        } ).catch( ( err ) => {
+            reply( 'server-side error' );
+        } );
+    }
+
+} );
 
 server.start( err => {
 

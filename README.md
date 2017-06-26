@@ -23,3 +23,8 @@ to make mock up data
 
 `knex seed:run`  
 to import data into db
+
+## Run app
+
+`npm run server`
+app is running on port 8080
