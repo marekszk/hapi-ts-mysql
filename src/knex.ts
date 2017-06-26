@@ -1,14 +1,15 @@
 import * as Knex from 'knex';
 export default Knex({
+    
     client: 'mysql',
     connection: {
 
-        host: 'localhost',
+        host: 'host_name',
 
-        user: 'root',
-        password: 'zaq1@WSX',
+        user: 'user_name',
+        password: 'password',
 
-        database: 'test',
+        database: 'db_name',
         charset: 'utf8',
 
     }

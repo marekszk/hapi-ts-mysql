@@ -3,6 +3,12 @@ Configuration for node.js api working with hapi.js and mysql's database writing 
 
 `npm install`
 to install dependencies
+
+`typings install dt~node --global --save`  
+and  
+`typings install dt~hapi --save`  
+to install node's and hapi's types
+  
 ## knex
 http://knexjs.org/#Migrations-CLI
 
