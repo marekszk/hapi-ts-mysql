@@ -4,6 +4,7 @@
 
 import * as Hapi from 'Hapi';
 import knex from './knex';
+import { routes } from './routes';
 
 const server: Hapi.Server = new Hapi.Server();
 
@@ -11,38 +12,12 @@ server.connection( {
     port: 8080
 } );
 
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: (request: Hapi.Request, reply: Hapi.IReply) => {
-        reply('Joł!');
-    }
+routes.forEach( ( route ) => {
+    
+    console.log( `attaching ${route.method} ${ route.path }` );
+    server.route( route );
 
 });
-server.route( {
-
-    path: '/birds',
-    method: 'GET',
-    handler: (request: Hapi.Request, reply: Hapi.IReply ) => {    
-        const getOperation = knex( 'birds' ).where( {
-            isPublic: true
-        } ).select( 'name', 'species', 'picture_url' ).then( ( results ) => {
-            if( !results || results.length === 0 ) {
-                reply( {
-                    error: true,
-                    errMessage: 'no public bird found',
-                } );
-            }
-            reply( {
-                dataCount: results.length,
-                data: results,
-            } );
-        } ).catch( ( err ) => {
-            reply( 'server-side error' );
-        } );
-    }
-
-} );
 
 server.start( err => {
 
