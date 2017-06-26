@@ -31,15 +31,10 @@ export const routes = [
         handler: (request: Hapi.Request, reply: Hapi.IReply ) => {    
             const bird: Bird = request.payload;
             console.log(bird.guid);
-            
-            const insertOperation = knex( 'birds' ).insert( {
-                owner: bird.owner,
-                name: bird.name,
-                species: bird.species,
-                picture_url: bird.picture_url,
-                guid: bird.guid,
-                isPublic: bird.isPublic
-            } ).then( ( res ) => {
+
+            const insertOperation = knex( 'birds' ).insert( 
+                bird
+            ).then( ( res ) => {
 
                 reply( {
 
