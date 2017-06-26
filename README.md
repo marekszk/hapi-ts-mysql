@@ -8,15 +8,18 @@ to install dependencies
 and  
 `typings install dt~hapi --save`  
 to install node's and hapi's types
-  
-## knex
-http://knexjs.org/#Migrations-CLI
+
+## knex.js
+
+First, fill up knexfile.js with your database infomation
+
+http://knexjs.org/#Migrations-CLI <- there is knex-cli documentation
 
 `knex migrate:make MIGRATION_NAME`  
 to create tables or editing data structures
 
 **DO NOT DELETE MIGRATION FILES!**  
-To correct for example data structure make new migration
+To correct data structure make new migration
 
 `knex migrate:latest`  
 to insert tables into database
@@ -32,5 +35,6 @@ to import data into db
 
 ## Run app
 
-`npm run server`
-app is running on port 8080
+First, fill up ./src/knex.ts with your database infomation  
+`npm run server`  
+app is availaible on localhost:8080
