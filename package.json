@@ -1,0 +1,21 @@
+{
+  "name": "hapi-ts-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "start npm run server-ts && start npm run server-node",
+    "server-ts": "tsc ./server/server.ts -w",
+    "server-node": "nodemon ./server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.4.3",
+    "knex": "^0.13.0",
+    "nodemon": "^1.11.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^2.3.4"
+  }
+}
