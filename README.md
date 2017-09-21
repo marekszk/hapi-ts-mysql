@@ -4,9 +4,7 @@ Configuration for node.js api working with hapi.js and mysql's database writing 
 `npm install`
 to install dependencies
 
-`typings install dt~node --global --save`  
-and  
-`typings install dt~hapi --save`  
+`npm run typings` 
 to install node's and hapi's types
 
 ## knex.js
@@ -35,6 +33,5 @@ to import data into db
 
 ## Run app
 
-First, fill up ./src/knex.ts with your database infomation  
 `npm run server`  
 app is availaible on localhost:8080
